@@ -3,7 +3,7 @@ const alertReducer = (state = null , action) => {
         case "SET_SUCCESS":
             return action.alert;
         
-        case "SSET_WARNING":
+        case "SET_WARNING":
             return action.alert;
 
         case "SET_DANGER":

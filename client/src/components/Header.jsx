@@ -1,16 +1,32 @@
 import React, { useState } from 'react'
-import {NavLink, Link} from "react-router-dom";
-import { Logo } from '../assets';
+import {NavLink, Link, useNavigate} from "react-router-dom";
+import { Avatar , Logo } from '../assets';
 import { isActiveStyles, isNotActiveStyles } from '../utils/styles';
 import { motion } from "framer-motion";
 import { SlideTop, buttonClick } from "../animations";
-import { MdLogout, MdSearch, MdShoppingCart } from "../assets/icons";
-import { useSelector } from "react-redux";
+import { MdLogout, MdShoppingCart } from "../assets/icons";
+import { useDispatch, useSelector } from "react-redux";
+import { getAuth } from "firebase/auth";
+import { app } from "../config/firebase.config";
+import { setUserNull } from '../context/actions/userActions';
+
 
 const Header = () => {
 
   const user = useSelector((state) => state.user)
   const[isMenu, setIsMenu] = useState(false);
+  const firebaseAuth = getAuth(app);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+    const signOut = () => {
+      firebaseAuth.signOut().then(() => {
+         dispatch(setUserNull());
+        navigate("/login", {replace : true});
+      })
+      .catch((err) => console.log(err));
+    } 
+
 
   return (
   <header className='fixed backdrop-blur-md z-50 inset-x-0 top-0 flex items-center justify-between px-12 md:px-20 py-6'>
@@ -67,7 +83,9 @@ const Header = () => {
                   </Link>
                   <hr/>
 
-                  <motion.div {...buttonClick} className="group flex items-center justify-center px-3 py-2 rounded-md bg-gray-100 shadow-md hover:bg-gray-300 gap-3">
+                  <motion.div {...buttonClick} 
+                  onClick = {signOut}
+                  className="group flex items-center justify-center px-3 py-2 rounded-md bg-gray-100 shadow-md hover:bg-gray-300 gap-3">
                     <MdLogout className="text-2xl text-textColor group-hover:text-headingColor"/>
                     <p className=" text-textColor text-xl group-hover:text-headingColor" >Sign Out</p>
                   </motion.div>

@@ -11,6 +11,8 @@ import {app} from "../config/firebase.config";
 import { validateUserJWTToken } from '../api';
 import { useDispatch, useSelector } from 'react-redux';
 import { alertInfo, alertWarning } from '../context/actions/alertActions';
+import { setUserDetails } from '../context/actions/userActions';
+
 
 
 const Login = () => {
@@ -44,7 +46,7 @@ const Login = () => {
           if(cred){ 
             cred.getIdToken().then((token) => {
               validateUserJWTToken(token).then((data) =>{
-                dispatch (setUserDetails(data));
+                dispatch(setUserDetails(data));
               });
               navigate("/", {replace : true});
             });
@@ -111,7 +113,7 @@ const Login = () => {
           }) 
         }
         else{
-          dispatch(alertWarning("Password Doesn't match"))
+          dispatch(alertWarning("Password Doesn't match"));
 
         }
     }
