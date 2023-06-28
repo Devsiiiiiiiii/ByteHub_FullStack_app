@@ -18,6 +18,10 @@ body{
     font-family: "Press Start 2P";
 }
 
+.MuiPaper-root {
+    width : 100%
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

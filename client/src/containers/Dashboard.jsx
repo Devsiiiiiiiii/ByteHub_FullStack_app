@@ -6,8 +6,7 @@ const Dashboard = () => {
     <div className='w-screen h-screen flex items-center bg-primary'>
         <DBLeftSection/>
         <DBRightSection/>
-      Dashboard
-    </div>
+          </div>
   )
 }
 
