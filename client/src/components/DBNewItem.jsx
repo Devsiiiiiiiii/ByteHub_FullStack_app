@@ -8,7 +8,8 @@ import {alertDanger, alertNULL, alertSuccess, alertWarning} from "../context/act
 import {motion } from "framer-motion";
 import { buttonClick } from '../animations';
 import { storage } from '../config/firebase.config';
-import { addNewProduct } from '../api';
+import { addNewProduct, getAllProducts } from '../api';
+import { setAllProducts } from '../context/actions/productsActions';
 
 const DBNewItem = () => {
   const [itemName, setItemName] = useState("");
@@ -88,6 +89,12 @@ const dispatch = useDispatch();
       setItemName("")
       setprice("")
       setcategory(null)
+    })
+
+
+
+    getAllProducts().then((data) => {
+      dispatch(setAllProducts(data))
     })
   }
 
