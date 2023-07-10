@@ -51,6 +51,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-router-dom", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:6.13.0"],\
             ["react-scripts", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:5.0.1"],\
             ["redux", "npm:4.2.1"],\
+            ["swiper", "npm:10.0.3"],\
             ["tailwind-scrollbar", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:3.0.4"],\
             ["tailwindcss", "npm:3.3.2"],\
             ["web-vitals", "npm:2.1.4"]\
@@ -8970,6 +8971,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-router-dom", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:6.13.0"],\
             ["react-scripts", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:5.0.1"],\
             ["redux", "npm:4.2.1"],\
+            ["swiper", "npm:10.0.3"],\
             ["tailwind-scrollbar", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:3.0.4"],\
             ["tailwindcss", "npm:3.3.2"],\
             ["web-vitals", "npm:2.1.4"]\
@@ -19470,6 +19472,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["csso", "npm:4.2.0"],\
             ["picocolors", "npm:1.0.0"],\
             ["stable", "npm:0.1.8"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["swiper", [\
+        ["npm:10.0.3", {\
+          "packageLocation": "./.yarn/cache/swiper-npm-10.0.3-bd9df762bd-8956887623.zip/node_modules/swiper/",\
+          "packageDependencies": [\
+            ["swiper", "npm:10.0.3"]\
           ],\
           "linkType": "HARD"\
         }]\

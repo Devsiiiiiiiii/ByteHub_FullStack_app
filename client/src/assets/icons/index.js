@@ -4,7 +4,11 @@ import {
     FaCloudUploadAlt,
     FaCheck,
     FaArrowLeft,
+  
   } from "react-icons/fa";
+
+  import { GoChevronRight } from "react-icons/go";
+
   import { FcGoogle, FcClearFilters } from "react-icons/fc";
   import { MdShoppingCart, MdLogout, MdSearch, MdDelete } from "react-icons/md";
   import {
@@ -35,5 +39,6 @@ import {
     FcClearFilters,
     FaArrowLeft,
     HiCurrencyRupee,
+    GoChevronRight,
   };
   

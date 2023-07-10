@@ -18,6 +18,28 @@ export {default as DBUsers} from "./DBUsers";
 export {default as DataTable} from "./DataTable";
 export {default as Spinner} from "./Spinner";
 
+export {default as OLeftSection} from "./OLeftSection";
+export {default as ORightSection} from "./ORightSection";
+
+export {default as VendorsMenu} from "./VendorsMenu";
+export {default as Slider} from "./Slider";
+export {default as SliderCard} from "./SliderCard";
+
+
+export {default as SilderComp} from "./SilderComp";
+export {default as FilterSection } from "./FilterSection";
+
+export {default as Cart } from "./Cart";
+
+export {default as CheckOutSuccess } from "./CheckOutSuccess";
+
+export {default as OrdersData } from "./OrdersData";
+export {default as UsersOrder } from "./UsersOrder";
+
+
+
+
+
 
 
 

@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import { LoginBg2, Logo } from '../assets';
+import { isActiveStyles, isNotActiveStyles } from '../utils/styles';
 import { LoginInput } from '../components';
 import { FaEnvelope, FaLock, FcGoogle } from "../assets/icons";
 import { motion } from "framer-motion";
 import { buttonClick } from '../animations';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 
 import { getAuth, signInWithPopup, GoogleAuthProvider,createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import {app} from "../config/firebase.config";
 import { validateUserJWTToken } from '../api';
 import { useDispatch, useSelector } from 'react-redux';
-import { alertInfo, alertWarning } from '../context/actions/alertActions';
+import { alertInfo, alertNULL, alertWarning } from '../context/actions/alertActions';
 import { setUserDetails } from '../context/actions/userActions';
 
 
@@ -46,8 +47,8 @@ const Login = () => {
           if(cred){ 
             cred.getIdToken().then((token) => {
               validateUserJWTToken(token).then((data) =>{
-                dispatch(setUserDetails(data));
-              });
+                dispatch (setUserDetails(data));
+                           });
               navigate("/", {replace : true});
             });
           }
@@ -66,6 +67,7 @@ const Login = () => {
                     setpassword("")
                     setconfirm_password("")
           await createUserWithEmailAndPassword (firebaseAuth, userEmail, password).then(userCred => {
+            
             firebaseAuth.onAuthStateChanged((cred) => {
               if(cred){ 
                 cred.getIdToken().then((token) => {
@@ -80,6 +82,9 @@ const Login = () => {
         }
         else{
           dispatch(alertWarning("Password Doesn't match"))
+          setTimeout (() => {
+            dispatch(alertNULL());
+          }, 3000)
         }
       }
     };
@@ -114,7 +119,9 @@ const Login = () => {
         }
         else{
           dispatch(alertWarning("Password Doesn't match"));
-
+          setTimeout (() => {
+            dispatch(alertNULL());
+          }, 3000)
         }
     }
 
@@ -138,9 +145,9 @@ const Login = () => {
           </div>
     
           {/* {welcome text} */}
-          <p className="text-3xl font-semibold text-headingColor"> Welcome Back</p>
+          <p className="text-3xl font-semibold text-headingColor"> CUSTOMER LOGIN</p>
           <p className="text-xl text-textColor -mt-6">
-            {isSignUp ? "Sign Up" : "Sign In"} with the following
+            {isSignUp ? "Sign Up" : "Sign In"} as a Customer
           </p>
     
           {/* {input section} */}
@@ -173,6 +180,8 @@ const Login = () => {
                 isSignUp={isSignUp}
               />
             )}
+
+            
     
             {!isSignUp ? (
               <p>
@@ -198,6 +207,10 @@ const Login = () => {
               </p>
             )}
     
+    
+             
+            
+            
             {/* button section */}
             {isSignUp ? (
               <motion.button
@@ -216,9 +229,24 @@ const Login = () => {
                 Sign In
               </motion.button>
             )}
-          </div>
+
+
+<p > 
+<NavLink
+          className={({ isActive }) =>
+            isActive ? isActiveStyles : isNotActiveStyles
+          }
+          to={"/vendorlogin"}
+        ></NavLink>      
+                              <motion.button
+                                {...buttonClick}
+                                className="text-black curser-pointer bg-transparent"
+                                 onClick ={() => navigate ("/vendorlogin")}> 
+Click here if you are a VENDOR?                                            </motion.button>
+                            </p>
+                     </div>
     
-          <div className="flex item-center justify-between gap-6">
+          {/* <div className="flex item-center justify-between gap-6">
             <div className="w-16 h-[1px] rounded-md bg-black"></div>
             <p className="text-black">or</p>
             <div className="w-16 h-[1px] rounded-md bg-black"></div>
@@ -233,7 +261,7 @@ const Login = () => {
             <p className="capitalize text-base text-headingColor">
               Sign in with Google
             </p>
-          </motion.div>
+          </motion.div> */}
         </div>
       </div>
     );

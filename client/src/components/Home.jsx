@@ -1,9 +1,20 @@
 import React from 'react'
 import {motion} from"framer-motion";
-import { Delivery, HeroBg } from '../assets';
+import { C3, Delivery, F1, Fi1, HeroBg, I1 } from '../assets';
 import { buttonClick, staggerFadeInOut } from '../animations';
 import { heroData } from '../utils/styles';
+import { useNavigate } from "react-router-dom";
+
+
+
+
+
 const Home = () => {
+
+
+  const navigate= useNavigate();
+
+
   return (
     <motion.div className="grid grid-cols-1 md:grid-cols-2 gap-2 w-full ">
       <div className=" flex flex flex-col items-start justify-center gap-6">
@@ -32,9 +43,10 @@ const Home = () => {
         </p>
 
         <motion.button 
-          {...buttonClick}
+          {...buttonClick} 
           className="bg-gradient-to-bl from-orange-400 to-orange-500 w-full md:w-auto px-4 py-2  rounded-lg hover:shadow-lg transition-all ease-in-out duration-100 text-white font-semibold"
-        >
+          onClick ={() => navigate ("/outlets")}>
+        
           Order Now!
         </motion.button>
       </div>
@@ -48,26 +60,69 @@ const Home = () => {
         />
 
         <div className="w-full h-full absolute top-0 left-auto flex items-center justify-center   py-4 gap-4 flex-wrap">
-        {heroData &&
-            heroData.map((n , i) => (
+        
+            
               <motion.button {...buttonClick}
-                key={i} {...staggerFadeInOut(i)}
+                {...staggerFadeInOut()}
                 className="  w-32 h-36 md: h-auto md:w-190 p-4 bg-lightOverlay
-                backdrop-blur-md rounded-3xl flex flex-col items-center
-                justify-center drop-shadow-lg">
+                backdrop-blur-md rounded-3xl flex flex-col items-center 
+                justify-center drop-shadow-lg"  onClick ={() => navigate ("/outlets/yummpys")}>  
               
                 <img
-                  src={n.imageSrc}
-                  className="w-20 lg:w-40 -mt-10 lg:mt-20 "
-                  alt="I1"
+                 src={I1}
+                  className="w-20 lg:w-40 -mt-auto lg:mt-50 "
+               
                 />
-                <p className="text-sm lg:text-xl font-bold text-black mt-2 lg:mt-4">
-                  {n.name}
+                <p className="text-sm lg:text-xl font-bold text-black mt-5 lg:mt-auto">
+                  YUMMPYS
                 </p>
-
-                                
-              </motion.button >
-            ))}
+            </motion.button >
+            <motion.button {...buttonClick}
+                {...staggerFadeInOut()}
+                className="  w-32 h-36 md: h-auto md:w-190 p-4 bg-lightOverlay
+                backdrop-blur-md rounded-3xl flex flex-col items-center 
+                justify-center drop-shadow-lg" onClick ={() => navigate ("/outlets/wichplease")}>
+              
+                <img
+                 src={F1}
+                  className="w-20 lg:w-40 -mt-auto lg:mt-50 "
+               
+                />
+                <p className="text-sm lg:text-xl font-bold text-black mt-5 lg:mt-auto">
+                  WICH PLEASE
+                </p>
+            </motion.button >
+            <motion.button {...buttonClick}
+                {...staggerFadeInOut()}
+                className="  w-32 h-36 md: h-auto md:w-190 p-4 bg-lightOverlay
+                backdrop-blur-md rounded-3xl flex flex-col items-center 
+                justify-center drop-shadow-lg "onClick ={() => navigate ("/outlets/hotspot")} >
+              
+                <img
+                 src={C3}
+                  className="w-20 lg:w-40 -mt-auto lg:mt-50 "
+               
+                />
+                <p className="text-sm lg:text-xl font-bold text-black mt-5 lg:mt-auto">
+                  HOTSPOT
+                </p>
+            </motion.button >
+            <motion.button {...buttonClick}
+                {...staggerFadeInOut()}
+                className="  w-32 h-36 md: h-auto md:w-190 p-4 bg-lightOverlay
+                backdrop-blur-md rounded-3xl flex flex-col items-center 
+                justify-center drop-shadow-lg" onClick ={() => navigate ("/outlets/sfc")}>
+              
+                <img
+                 src={Fi1}
+                  className="w-20 lg:w-40 -mt-auto lg:mt-50 "
+               
+                />
+                <p className="text-sm lg:text-xl font-bold text-black mt-5 lg:mt-auto">
+                  SFC
+                </p>
+            </motion.button >
+            
         </div>
       </div>
     </motion.div>

@@ -5828,6 +5828,7 @@ __metadata:
     react-router-dom: ^6.13.0
     react-scripts: 5.0.1
     redux: ^4.2.1
+    swiper: ^10.0.3
     tailwind-scrollbar: ^3.0.4
     tailwindcss: ^3.3.2
     web-vitals: ^2.1.0
@@ -14128,6 +14129,13 @@ __metadata:
   bin:
     svgo: bin/svgo
   checksum: b92f71a8541468ffd0b81b8cdb36b1e242eea320bf3c1a9b2c8809945853e9d8c80c19744267eb91cabf06ae9d5fff3592d677df85a31be4ed59ff78534fa420
+  languageName: node
+  linkType: hard
+
+"swiper@npm:^10.0.3":
+  version: 10.0.3
+  resolution: "swiper@npm:10.0.3"
+  checksum: 895688762302bc403517074db9811b6c69ba91869c7f2871286f2ba63da50ce62042b5b45afb3dcad626a3ec84cdcec3f776de7977472ebffe4fec60cdffbef3
   languageName: node
   linkType: hard
 
